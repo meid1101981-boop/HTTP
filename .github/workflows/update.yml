@@ -17,11 +17,11 @@ jobs:
 
       - name: Fetch and update proxies
         run: |
-          curl -s "https://raw.githubusercontent.com/VPSLabCloud/VPSLab-Free-Proxy-List/refs/heads/main/http_all.txt" > all.txt
-          curl -s "https://www.flashproxy.com/api/proxies/txt?protocol=http&limit=2000" >> all.txt
-          curl -s "https://api.proxyscrape.com/v3/free-proxy-list/get?request=displayproxies&protocol=http&proxy_format=ipport&format=text&timeout=2000" >> all.txt
-          curl -s "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/http.txt" >> all.txt
-          curl -s "https://github.com/proxygenerator1/ProxyGenerator/raw/refs/heads/main/Stable/http.txt" >> all.txt
+          curl -s "https://raw.githubusercontent.com/Vann-Dev/proxy-list/main/proxies/http.txt" > all.txt
+          curl -s "https://raw.githubusercontent.com/VPSLabCloud/VPSLab-Free-Proxy-List/refs/heads/main/http_ssl_elite.txt" >> all.txt
+          curl -s "https://github.com/andigwandi/free-proxy/raw/refs/heads/main/proxy_list.txt" >> all.txt
+          curl -s "https://github.com/Thordata/awesome-free-proxy-list/raw/refs/heads/main/proxies/http.txt" >> all.txt
+          curl -s "https://raw.githubusercontent.com/sunny9577/proxy-scraper/master/proxies.txt" >> all.txt
           sort -u all.txt -o all.txt
 
       - name: Commit and push updated file
@@ -30,3 +30,4 @@ jobs:
           git config --local user.name "GitHub Action"
           git add all.txt
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update HTTP proxy list" && git push)
+
