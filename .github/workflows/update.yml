@@ -2,7 +2,7 @@ name: Update HTTP Proxy List
 
 on:
   schedule:
-    - cron: - cron: '0 * * * *'
+    - cron: '0 * * * *'
   workflow_dispatch:
 
 jobs:
@@ -30,4 +30,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git add all.txt
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update HTTP proxy list" && git push)
+
+
+
 
